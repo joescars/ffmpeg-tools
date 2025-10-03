@@ -118,7 +118,7 @@ if [[ -e $output_file ]]; then
 	done
 fi
 
-cmd=(ffmpeg -hide_banner -loglevel info -y -i "$input_file" -c:v "$vcodec" -profile:v main10 -b:v "$bitrate" -c:a "$acodec" -b:a 384k -sn)
+cmd=(ffmpeg -hide_banner -loglevel error -y -i "$input_file" -c:v "$vcodec" -profile:v main -b:v "$bitrate" -c:a "$acodec" -b:a 384k -sn)
 if [[ -n $extra ]]; then
 	# shellcheck disable=SC2206 # we intentionally split extra
 	extra_arr=( $extra )
